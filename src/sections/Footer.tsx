@@ -65,7 +65,7 @@ export default function Footer() {
             </motion.h2>
             <motion.p className="max-w-md text-lg text-gray-300" variants={itemVariants}>
               NAIYO24 PRIVATE LIMITED specializes in crafting innovative web and
-              mobile solutions tailored to your business. We're committed to
+              mobile solutions tailored to your business. We&#39;re committed to
               turning your digital ideas into reality with cutting-edge
               technology and expert services.
             </motion.p>
