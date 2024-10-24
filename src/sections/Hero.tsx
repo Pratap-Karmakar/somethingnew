@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from "framer-motion"
-import Image from "next/image"
+// import Image from "next/image"
 import Button from "@/components/Button"
 import starBg from "../assets/stars.png"
 
@@ -22,7 +22,7 @@ const Dot = ({ className = "" }: { className?: string }) => (
 export default function Hero() {
   return (
     <section
-      className="relative h-[750px] sm:h-[600px] md:h-[700px] lg:h-[750px] flex items-center justify-center overflow-hidden"
+      className="relative h-[750px] sm:h-[600px] md:h-[750px] lg:h-[750px] flex items-center justify-center overflow-hidden"
       style={{ backgroundImage: `url(${starBg.src})` }}
     >
       {/* Background Overlay */}
