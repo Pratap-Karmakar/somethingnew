@@ -38,7 +38,7 @@ const serviceData = [
 
 export default function Component() {
   return (
-    <div className="bg-white text-black min-h-screen flex flex-col justify-between">
+    <div className="bg-white text-black min-h-screen flex flex-col justify-between px-2">
       <div className="flex-grow flex flex-col p-4 md:p-8">
         <div className="flex flex-col items-end mb-8 md:mb-16">
           <div className="flex items-center justify-end space-x-2">
@@ -61,9 +61,12 @@ export default function Component() {
             <h1 className="text-3xl md:text-8xl font-bold">
               <span className="text-black">For Your</span> Business.
             </h1>
-            <button className="bg-black md:text-2xl text-white hover:bg-gray-800 px-4 py-2 md:px-24 md:py-8 rounded-full text-lg font-medium flex items-center justify-center transition-colors duration-200">
+            <button className="bg-black group gap-3 md:text-2xl text-white hover:bg-zinc-900 px-4 py-2 md:px-24 md:py-8 rounded-full text-lg font-medium flex items-center justify-center transition-colors duration-200">
               What We Do?
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <div className="bg-white rounded-full p-4 transition-transform duration-300 group-hover:translate-x-7 group-hover:scale-125">
+  <ArrowRight className="h-5 w-5 text-black transform transition-transform duration-300" />
+</div>
+
             </button>
           </div>
         </div>
@@ -89,7 +92,9 @@ export default function Component() {
                   href={service.link}
                   className="text-black hover:text-gray-600 transition-colors duration-200 flex items-center"
                 >
-                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  <div className="bg-black rounded-full p-4 transition-transform duration-300 group-hover:translate-x-5">
+                  <ArrowRight className="h-5 w-5 text-white" />
+                  </div>
                   <span className="sr-only">Learn more about {service.title}</span>
                 </a>
               </div>
