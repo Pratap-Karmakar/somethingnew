@@ -20,7 +20,8 @@ const AboutPage: React.FC = () => {
         transition={{ duration: 0.6 }}
       >
         <motion.h1 
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 mb-6 pb-10 text-center"
+        //   className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 mb-6 pb-10 text-center"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-black bg-yellow-400 px-4 p-2 mb-6 rounded-lg text-center"
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
@@ -38,14 +39,14 @@ const AboutPage: React.FC = () => {
           success with our expertise in web and mobile development.
         </motion.p>
         <motion.div
-          className="bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500 h-1 w-40 rounded-full mb-10"
+          className="bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-400 h-1 w-40 rounded-full mb-10"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         />
         <motion.a
           href="#mission"
-          className="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-purple-700 transition-all shadow-lg"
+          className="bg-yellow-400 text-black px-8 py-3 rounded-full font-semibold text-lg hover:bg-yellow-500 transition-all shadow-lg"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -62,7 +63,7 @@ const AboutPage: React.FC = () => {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-purple-600 mb-8">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black bg-yellow-400 px-4 py-2 rounded-lg mb-8">
           Our Mission
         </h2>
         <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl text-center leading-relaxed">
