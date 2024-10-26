@@ -1,23 +1,24 @@
-'use client'
+"use client"
 
-import Image, { StaticImageData } from 'next/image'
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { motion } from 'framer-motion'
+import React, { CSSProperties } from 'react'; // Add CSSProperties import
+import Image, { StaticImageData } from 'next/image';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 // Import images
-import Zomato from '../../assets/mobileimage/Zomato.jpeg'
-import Onemg from '../../assets/mobileimage/Onemg.png'
-import Bigbusket from '../../assets/mobileimage/Bigbusket.png'
-import Facebook from '../../assets/mobileimage/Facebook.png'
-import Instagram from '../../assets/mobileimage/Instagram.png'
-import Snapchat from '../../assets/mobileimage/Snapchat.png'
-import Swiggy from '../../assets/mobileimage/Swiggy.png'
-import Twitter from '../../assets/mobileimage/Twitter.png'
-import Whatsapp from '../../assets/mobileimage/Whatsapp.jpg'
+import Zomato from '../../assets/mobileimage/Zomato.jpeg';
+import Onemg from '../../assets/mobileimage/Onemg.png';
+import Bigbusket from '../../assets/mobileimage/Bigbusket.png';
+import Facebook from '../../assets/mobileimage/Facebook.png';
+import Instagram from '../../assets/mobileimage/Instagram.png';
+import Snapchat from '../../assets/mobileimage/Snapchat.png';
+import Swiggy from '../../assets/mobileimage/Swiggy.png';
+import Twitter from '../../assets/mobileimage/Twitter.png';
+import Whatsapp from '../../assets/mobileimage/Whatsapp.jpg';
 
-// Bubble styles
-const bubbleStyle = {
+// Bubble styles with correct type
+const bubbleStyle: CSSProperties = {
   position: 'absolute',
   borderRadius: '50%',
   background: 'rgba(128, 0, 128, 0.5)', // Purple color
@@ -25,17 +26,17 @@ const bubbleStyle = {
 };
 
 interface Product {
-  id: number
-  image: StaticImageData
-  title: string
-  description: string
+  id: number;
+  image: StaticImageData;
+  title: string;
+  description: string;
 }
 
 export default function AllInOneProductComponent() {
-  const [products, setProducts] = useState<Product[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-  const router = useRouter()
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -51,33 +52,33 @@ export default function AllInOneProductComponent() {
           { id: 8, image: Onemg, title: 'Ecommerce', description: 'Create an app like 1mg' },
           { id: 9, image: Zomato, title: 'Food Delivery', description: 'Create an app like Zomato' },
           { id: 10, image: Bigbusket, title: 'Ecommerce', description: 'Create an app like BigBusket' },
-        ]
-        setProducts(data)
-        setLoading(false)
+        ];
+        setProducts(data);
+        setLoading(false);
       } catch (err) {
-        setError('Failed to fetch products')
-        setLoading(false)
+        setError('Failed to fetch products');
+        setLoading(false);
       }
-    }
+    };
 
-    fetchProducts()
-  }, [])
+    fetchProducts();
+  }, []);
 
   const handleViewPrice = () => {
-    router.push('/maprice')
-  }
+    router.push('/maprice');
+  };
 
   if (loading) return (
     <div className="flex justify-center items-center h-screen bg-black">
       <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500"></div>
     </div>
-  )
-  
+  );
+
   if (error) return (
     <div className="flex justify-center items-center h-screen bg-black">
       <div className="text-center text-red-500 text-2xl font-bold">{error}</div>
     </div>
-  )
+  );
 
   const bubbleCount = 20; // Number of bubbles
   const bubbles = Array.from({ length: bubbleCount }, (_, index) => ({
@@ -170,5 +171,5 @@ export default function AllInOneProductComponent() {
         </motion.div>
       </div>
     </div>
-  )
+  );
 }

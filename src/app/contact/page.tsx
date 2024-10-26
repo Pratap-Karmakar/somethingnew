@@ -4,9 +4,10 @@ import { useState, useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 
 interface BubbleProps {
-  size: number
-  position: { x: number; y: number }
-  delay: number
+  id: number; // Added id to the interface
+  size: number;
+  position: { x: number; y: number };
+  delay: number;
 }
 
 const Bubble: React.FC<BubbleProps> = ({ size, position, delay }) => {
@@ -50,7 +51,7 @@ export default function Contact() {
 
   useEffect(() => {
     const newBubbles = Array.from({ length: 20 }, (_, i) => ({
-      id: i,
+      id: i, // Keep id here
       size: Math.random() * 60 + 20,
       position: {
         x: Math.random() * window.innerWidth,
@@ -91,8 +92,14 @@ export default function Contact() {
         }}
       />
       {bubbles.map((bubble) => (
-        <Bubble key={bubble.id} size={bubble.size} position={bubble.position} delay={bubble.delay} />
-      ))}
+      <Bubble 
+        key={bubble.id} 
+        id={bubble.id} // Added id prop
+        size={bubble.size} 
+        position={bubble.position} 
+        delay={bubble.delay} 
+      />
+    ))}
       
       {/* Heading text */}
       <motion.h1
