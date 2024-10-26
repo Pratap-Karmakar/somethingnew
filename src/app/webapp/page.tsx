@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
@@ -85,7 +85,7 @@ export default function EnhancedWebsiteCards() {
             Our Website Solutions
           </h1>
           <p className="text-xl text-purple-200 max-w-2xl mx-auto">
-            Discover the perfect website solution for your business. From e-commerce to portfolios, we've got you covered.
+            Discover the perfect website solution for your business. From e-commerce to portfolios, we&apos;ve got you covered.
           </p>
         </motion.div>
 

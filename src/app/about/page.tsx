@@ -106,7 +106,7 @@ export default function AboutUs() {
 
         <motion.section {...fadeInUp} className="mb-16 text-white">
           <p className="text-xl mb-6 leading-relaxed">
-            At Naiyo24 pvt ltd. we are dedicated to delivering cutting-edge IT solutions that empower businesses and individuals in today's digital landscape. Our expertise spans across various technological domains, enabling us to craft innovative products and services that drive growth and enhance user experiences.
+            At Naiyo24 pvt ltd. we are dedicated to delivering cutting-edge IT solutions that empower businesses and individuals in today&apos;s digital landscape. Our expertise spans across various technological domains, enabling us to craft innovative products and services that drive growth and enhance user experiences.
           </p>
           <p className="text-xl leading-relaxed">
             We pride ourselves on being at the forefront of technology, constantly evolving to meet the changing needs of our clients. From software development to IT consulting, our team of professionals is committed to excellence, quality, and customer satisfaction.
@@ -116,7 +116,7 @@ export default function AboutUs() {
         <motion.section {...fadeInUp} className="mb-16">
           <h2 className="text-4xl font-semibold mb-6 text-purple-400">Our Mission</h2>
           <p className="text-xl text-white leading-relaxed">
-            Our mission is to bridge the gap between technology and business needs, providing exceptional IT solutions that exceed our clients' expectations. We strive to build lasting relationships, fueled by trust, expertise, and a customer-centric approach.
+            Our mission is to bridge the gap between technology and business needs, providing exceptional IT solutions that exceed our clients&apos;s expectations. We strive to build lasting relationships, fueled by trust, expertise, and a customer-centric approach.
           </p>
         </motion.section>
 

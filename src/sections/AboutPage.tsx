@@ -113,10 +113,10 @@ const AboutPage: React.FC = () => {
         viewport={{ once: true }}
       >
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center">
-          Let's Work Together
+          Let&apos;s Work Together
         </h2>
         <p className="text-lg md:text-xl lg:text-2xl max-w-3xl text-center mb-10 leading-relaxed">
-          Whether you're looking for web development, mobile apps, or digital
+          Whether you&apos;re looking for web development, mobile apps, or digital
           strategy, we are here to help you bring your vision to life. Contact
           us today to get started on your next big project!
         </p>

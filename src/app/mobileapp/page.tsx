@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
@@ -16,6 +16,14 @@ import Swiggy from '../../assets/mobileimage/Swiggy.png'
 import Twitter from '../../assets/mobileimage/Twitter.png'
 import Whatsapp from '../../assets/mobileimage/Whatsapp.jpg'
 
+// Bubble styles
+const bubbleStyle = {
+  position: 'absolute',
+  borderRadius: '50%',
+  background: 'rgba(128, 0, 128, 0.5)', // Purple color
+  opacity: 0.5,
+};
+
 interface Product {
   id: number
   image: StaticImageData
@@ -23,7 +31,7 @@ interface Product {
   description: string
 }
 
-export default function EnhancedProductCards() {
+export default function AllInOneProductComponent() {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -71,8 +79,33 @@ export default function EnhancedProductCards() {
     </div>
   )
 
+  const bubbleCount = 20; // Number of bubbles
+  const bubbles = Array.from({ length: bubbleCount }, (_, index) => ({
+    size: Math.random() * 40 + 20, // Random size between 20px and 60px
+    left: Math.random() * 100 + 'vw', // Random horizontal position
+    animationDuration: Math.random() * 3 + 3 + 's', // Random duration between 3s and 6s
+    delay: Math.random() * 3 + 's' // Random delay
+  }));
+
   return (
-    <div className="min-h-screen bg-black text-purple-300 overflow-hidden">
+    <div className="min-h-screen bg-black text-purple-300 overflow-hidden relative">
+      {/* Floating Bubbles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {bubbles.map((bubble, index) => (
+          <div
+            key={index}
+            style={{
+              ...bubbleStyle,
+              width: bubble.size + 'px',
+              height: bubble.size + 'px',
+              left: bubble.left,
+              animation: `float ${bubble.animationDuration} ease-in-out infinite`,
+              animationDelay: bubble.delay,
+            }}
+          />
+        ))}
+      </div>
+
       <div className="container mx-auto px-4 py-16">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -84,7 +117,7 @@ export default function EnhancedProductCards() {
             Our Mobile App Solutions
           </h1>
           <p className="text-xl text-purple-300 max-w-2xl mx-auto">
-            Discover the perfect mobile app solution for your business. From food delivery to social media, we've got you covered.
+            Discover the perfect mobile app solution for your business. From food delivery to social media, we&apos;ve got you covered.
           </p>
         </motion.div>
 
@@ -95,7 +128,7 @@ export default function EnhancedProductCards() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-800  rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+              className="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
             >
               <div className="relative h-48">
                 <Image 
