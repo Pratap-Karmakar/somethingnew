@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, useAnimation, useInView } from "framer-motion"
+import { useRouter } from "next/navigation"
 import { useEffect, useRef } from "react"
 
 const Ring = ({ className, children, rotationSpeed = 20 }: { className: string, children?: React.ReactNode, rotationSpeed?: number }) => (
@@ -80,6 +81,14 @@ const TypewriterText = ({ text, delay = 0 }: { text: string, delay?: number }) =
 }
 
 export default function Component() {
+
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push("/contact")
+  }
+
+
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#050011]">
       {/* Animated Background */}
@@ -187,7 +196,7 @@ export default function Component() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-           <button className="relative py-2 px-4 rounded-lg bg-gradient-to-b from-[#190d2e] to-[#4a208a] shadow-[0px_0px_12px_rgb(140,69,255)] hover:shadow-[0px_0px_16px_rgb(140,69,255)] transition-shadow duration-300">
+           <button onClick={handleClick} className="relative py-2 px-4 rounded-lg bg-gradient-to-b from-[#190d2e] to-[#4a208a] shadow-[0px_0px_12px_rgb(140,69,255)] hover:shadow-[0px_0px_16px_rgb(140,69,255)] transition-shadow duration-300">
       <div className="absolute inset-0">
         <div className="border rounded-lg border-white/20 absolute inset-0 [mask-image:linear-gradient(to bottom, black, transparent)]"></div>
         <div className="border rounded-lg absolute inset-0 border-white/40 [mask-image:linear-gradient(to top, black, transparent)]"></div>

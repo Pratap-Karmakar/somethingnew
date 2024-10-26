@@ -58,7 +58,7 @@ export default function Footer() {
         <motion.div className="lg:w-1/2 flex flex-col justify-between" variants={itemVariants}>
           <div className="space-y-6">
             <motion.h2
-              className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold text-yellow-400"
+              className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold text-purple-800"
               variants={itemVariants}
             >
               About.
@@ -70,12 +70,12 @@ export default function Footer() {
               technology and expert services.
             </motion.p>
           </div>
-          <motion.div className="mt-16 lg:mt-0 font-semibold text-2xl text-yellow-400" variants={itemVariants}>
+          <motion.div className="mt-16 lg:mt-0 font-semibold text-2xl text-gray-300" variants={itemVariants}>
             Naiyo24 pvt ltd.
           </motion.div>
         </motion.div>
         <motion.div className="lg:w-1/2 space-y-12" variants={itemVariants}>
-          <motion.h3 className="text-4xl sm:text-5xl font-semibold text-yellow-400" variants={itemVariants}>
+          <motion.h3 className="text-4xl sm:text-5xl font-semibold text-purple-700" variants={itemVariants}>
             Quick Links.
           </motion.h3>
           <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8" variants={containerVariants}>
