@@ -1,5 +1,3 @@
-"use client"
-
 import { motion, useScroll, useTransform } from "framer-motion"
 import { FaLightbulb, FaHandshake, FaPuzzlePiece, FaTrophy } from "react-icons/fa"
 import { MdSecurity, MdCloud } from "react-icons/md"
@@ -7,14 +5,15 @@ import { RiTeamFill } from "react-icons/ri"
 import { useRef, FC } from "react"
 import Link from 'next/link'
 
+// Extend ValueProps to accept additional props for icons
 interface ValueProps {
-  icon: FC;
+  icon: FC<{ className?: string }>; // Add className as optional prop
   title: string;
   text: string;
 }
 
 interface ServiceProps {
-  icon: FC;
+  icon: FC<{ className?: string }>; // Add className as optional prop
   text: string;
 }
 
@@ -132,7 +131,7 @@ export default function AboutUs() {
                 transition={{ delay: index * 0.2 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <item.icon className="text-purple-400 text-4xl mb-4" />
+                <item.icon className="text-purple-400 text-4xl mb-4" /> {/* Ensure icon accepts className */}
                 <h3 className="text-xl font-semibold mb-2 text-purple-400">{item.title}</h3>
                 <p className="text-white">{item.text}</p>
               </motion.div>
@@ -169,9 +168,8 @@ export default function AboutUs() {
           </p>
           <Link href="/contact">
             <motion.button
-              className="bg-gradient-to-r from-purple-400 to-purple-600 text-black px-8 py-4 rounded-full font-semibold text-xl shadow-lg"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(128, 0, 128, 0.5)" }}
-              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-purple-400 to-pink-500 text-white py-3 px-6 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300"
+              whileHover={{ scale: 1.05 }}
             >
               Contact Us
             </motion.button>
