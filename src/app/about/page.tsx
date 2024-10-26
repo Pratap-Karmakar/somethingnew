@@ -1,3 +1,5 @@
+'use client'
+
 import { motion, useScroll, useTransform } from "framer-motion"
 import { FaLightbulb, FaHandshake, FaPuzzlePiece, FaTrophy } from "react-icons/fa"
 import { MdSecurity, MdCloud } from "react-icons/md"
