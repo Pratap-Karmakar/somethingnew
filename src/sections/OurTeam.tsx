@@ -95,7 +95,7 @@ export default function CircularTeamDisplay() {
     <div className="relative w-full h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 overflow-hidden">
       {/* Responsive Background Text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4">
-        <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white opacity-5 text-center">
+        <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-white opacity-5 text-center">
           Our Team at Naiyo24 Pvt Ltd.
         </h1>
       </div>
