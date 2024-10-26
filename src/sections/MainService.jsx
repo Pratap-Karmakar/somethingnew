@@ -105,7 +105,7 @@ export default function Component() {
               className="w-[80vw] sm:w-[300px] flex-shrink-0 group relative"
             >
               <div className="bg-card text-card-foreground border border-border h-full flex flex-col p-6 group rounded-lg">
-                <div className="absolute top-0 left-0 h-1 w-full bg-black transform scale-x-0 transition-transform duration-700 origin-left group-hover:scale-x-100" />
+                <div className="absolute top-0 left-0 h-1 w-full bg-black transform scale-x-0 transition-transform duration-700 rounded-t-full origin-left group-hover:scale-x-100" />
                 <div className="mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                 <p className="text-sm mb-4 text-muted-foreground flex-grow">
