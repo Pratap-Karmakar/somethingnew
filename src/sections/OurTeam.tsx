@@ -74,33 +74,30 @@ export default function CircularTeamDisplay() {
   }
 
   const handleClick = (member: TeamMember) => {
-    if (selectedMember === member) {
-      setSelectedMember(null)
-    } else {
-      setSelectedMember(member)
-    }
+    setSelectedMember(selectedMember === member ? null : member)
   }
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRotation((prevRotation) => prevRotation + 0.0005) // Slightly faster, but still slow rotation
-    }, 20) // Shorter interval for smoother animation
+      setRotation((prevRotation) => prevRotation + 0.0005)
+    }, 20)
 
     return () => clearInterval(interval)
   }, [])
 
-  const orbitRadii = [200, 250, 300]
+  const orbitRadii = [100, 130, 160, 190, 220]
+//   const orbitRadii = [100, 150, 200, 250, 300]
 
   return (
     <div className="relative w-full h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 overflow-hidden">
       {/* Responsive Background Text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4">
-        <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-white opacity-5 text-center">
+        <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white opacity-5 text-center">
           Our Team at Naiyo24 Pvt Ltd.
         </h1>
       </div>
 
-      {/* Particle effect */}
+      {/* Particle Effect */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(50)].map((_, i) => (
           <div
@@ -117,7 +114,7 @@ export default function CircularTeamDisplay() {
         ))}
       </div>
 
-      <div className="relative w-[700px] h-[700px] max-w-full max-h-full scale-[0.8] sm:scale-90 md:scale-100">
+      <div className="relative w-[90%] h-[90%] max-w-[500px] max-h-[500px] md:max-w-full md:max-h-full scale-[0.8] sm:scale-90 md:scale-100">
         {/* Orbits */}
         {orbitRadii.map((radius, i) => (
           <motion.div
@@ -126,8 +123,8 @@ export default function CircularTeamDisplay() {
             style={{
               width: `${2 * radius}px`,
               height: `${2 * radius}px`,
-              left: `${350 - radius}px`,
-              top: `${350 - radius}px`,
+              left: `calc(50% - ${radius}px)`,
+              top: `calc(50% - ${radius}px)`,
               border: "1px solid rgba(255, 255, 255, 0.1)",
               boxShadow: "0 0 20px rgba(148, 0, 211, 0.3)",
             }}
@@ -146,16 +143,16 @@ export default function CircularTeamDisplay() {
         {teamData.map((member, index) => {
           const radius = orbitRadii[index % orbitRadii.length]
           const angle = (index / teamData.length) * 2 * Math.PI + rotation
-          const x = 350 + radius * Math.cos(angle)
-          const y = 350 + radius * Math.sin(angle)
+          const x = radius * Math.cos(angle)
+          const y = radius * Math.sin(angle)
 
           return (
             <motion.button
               key={member.name}
-              className="absolute w-16 h-16 rounded-full flex items-center justify-center text-sm font-bold cursor-pointer transition-all duration-300 ease-in-out shadow-lg"
+              className="absolute w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center text-xs md:text-sm font-bold cursor-pointer transition-all duration-300 ease-in-out shadow-lg"
               style={{
-                left: x - 32,
-                top: y - 32,
+                left: `calc(50% + ${x}px - 24px)`,
+                top: `calc(50% + ${y}px - 24px)`,
                 background: `radial-gradient(circle at 30% 30%, ${
                   selectedMember === member ? "#8B5CF6" : "#C4B5FD"
                 }, ${selectedMember === member ? "#4C1D95" : "#7C3AED"})`,
@@ -184,12 +181,12 @@ export default function CircularTeamDisplay() {
               onClick={() => setSelectedMember(null)}
             >
               <motion.div
-                className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-2xl shadow-2xl p-8 max-w-sm text-center border border-purple-300 border-opacity-30"
+                className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-2xl shadow-2xl p-8 max-w-[90%] text-center border border-purple-300 border-opacity-30"
                 onClick={(e) => e.stopPropagation()}
               >
-                <h2 className="text-3xl font-bold mb-3 text-purple-100">{selectedMember.name}</h2>
-                <p className="text-xl text-purple-200 mb-5">{selectedMember.title}</p>
-                <p className="text-sm text-purple-300">{selectedMember.quote}</p>
+                <h2 className="text-2xl md:text-3xl font-bold mb-3 text-purple-100">{selectedMember.name}</h2>
+                <p className="text-lg md:text-xl text-purple-200 mb-5">{selectedMember.title}</p>
+                <p className="text-xs md:text-sm text-purple-300">{selectedMember.quote}</p>
               </motion.div>
             </motion.div>
           )}

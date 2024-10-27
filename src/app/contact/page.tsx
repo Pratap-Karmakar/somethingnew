@@ -80,8 +80,8 @@ export default function Contact() {
         className="absolute inset-0 z-0"
         animate={{
           background: [
-            "linear-gradient(to right, #1a1a1a, #3a3a3a)",
-            "linear-gradient(to right, #3a3a3a, #1a1a1a)",
+            "linear-gradient(to right, #221133, #311949)",
+            "linear-gradient(to right, #311949, #221133)",
           ],
         }}
         transition={{

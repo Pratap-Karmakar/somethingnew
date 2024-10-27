@@ -1,17 +1,18 @@
-'use client'
+"use client";
 
-import { motion, AnimatePresence } from "framer-motion"
-import Image from "next/image"
-import { useState } from "react"
-import { Menu } from "lucide-react"
-import logo from '../assets/naiyo24.png'
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { useState } from "react";
+import { Menu } from "lucide-react";
+import logo from "../assets/naiyo24.png";
+import Link from "next/link";
 
 export default function Header() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen)
-  }
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <header className="border-b border-white/15">
@@ -19,15 +20,19 @@ export default function Header() {
         <motion.div
           className="md:px-16 p-4 mx-auto"
           initial={{ opacity: 0, y: -100 }} // Start above the view
-          animate={{ opacity: 1, y: 0 }}    // Slide down to its original position
-          exit={{ opacity: 0, y: -100 }}     // Slide back up when exiting
+          animate={{ opacity: 1, y: 0 }} // Slide down to its original position
+          exit={{ opacity: 0, y: -100 }} // Slide back up when exiting
           transition={{ duration: 0.5 }}
         >
-          <motion.div
-            className="flex justify-between items-center"
-          >
+          <motion.div className="flex justify-between items-center">
             <div>
-              <Image src={logo} alt="Logo" width={64} height={64} className="w-16" />
+              <Image
+                src={logo}
+                alt="Logo"
+                width={64}
+                height={64}
+                className="w-16"
+              />
             </div>
             <div className="relative z-50">
               <motion.button
@@ -87,13 +92,13 @@ export default function Header() {
               >
                 <ul className="space-y-4 text-2xl">
                   <li className="hover:underline hover:text-purple-600">
-                    <a href="#services">Our Services</a>
+                    <Link href="/ourservices">Our Services</Link>
                   </li>
                   <li className="hover:underline hover:text-purple-600">
-                    <a href="#about">About Us</a>
+                    <Link href="/about">About Us</Link>
                   </li>
                   <li className="hover:underline hover:text-purple-600">
-                    <a href="#contact">Contact Us</a>
+                    <Link href="/contact">Contact Us</Link>
                   </li>
                 </ul>
               </motion.div>
@@ -102,5 +107,5 @@ export default function Header() {
         </motion.div>
       </AnimatePresence>
     </header>
-  )
+  );
 }
