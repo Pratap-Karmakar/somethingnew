@@ -99,7 +99,7 @@ export default function EnhancedProductCards() {
             Our Mobile App Solutions
           </h1>
           <p className="text-xl text-purple-300 max-w-2xl mx-auto">
-            Discover the perfect mobile app solution for your business. From food delivery to social media, we've got you covered.
+            Discover the perfect mobile app solution for your business. From food delivery to social media, we&apos;ve got you covered.
           </p>
         </motion.div>
 
