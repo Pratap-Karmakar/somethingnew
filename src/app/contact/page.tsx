@@ -1,44 +1,7 @@
 'use client'
 
-import { useState, useEffect } from "react"
-import { motion, useAnimation } from "framer-motion"
-
-interface BubbleProps {
-  id: number; // Added id to the interface
-  size: number;
-  position: { x: number; y: number };
-  delay: number;
-}
-
-const Bubble: React.FC<BubbleProps> = ({ size, position, delay }) => {
-  const controls = useAnimation()
-
-  useEffect(() => {
-    controls.start({
-      y: [0, -window.innerHeight],
-      x: [position.x, position.x + Math.sin(position.y) * 50],
-      transition: {
-        duration: 10 + Math.random() * 20,
-        delay: delay,
-        repeat: Infinity,
-        ease: "linear",
-      },
-    })
-  }, [controls, position, delay])
-
-  return (
-    <motion.div
-      className="absolute rounded-full bg-purple-400 opacity-20"
-      style={{
-        width: size,
-        height: size,
-        bottom: -size,
-        left: position.x,
-      }}
-      animate={controls}
-    />
-  )
-}
+import { useState } from "react"
+import { motion } from "framer-motion"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -46,21 +9,6 @@ export default function Contact() {
     email: "",
     message: "",
   })
-
-  const [bubbles, setBubbles] = useState<BubbleProps[]>([])
-
-  useEffect(() => {
-    const newBubbles = Array.from({ length: 20 }, (_, i) => ({
-      id: i, // Keep id here
-      size: Math.random() * 60 + 20,
-      position: {
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-      },
-      delay: Math.random() * 5,
-    }))
-    setBubbles(newBubbles)
-  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -76,12 +24,13 @@ export default function Contact() {
 
   return (
     <div className="relative px-4 md:px-0 lg:px-0 xl:px-0 min-h-screen flex flex-col items-center justify-center overflow-hidden">
+      {/* Animated gradient background for space-like effect */}
       <motion.div
         className="absolute inset-0 z-0"
         animate={{
           background: [
-            "linear-gradient(to right, #221133, #311949)",
-            "linear-gradient(to right, #311949, #221133)",
+            "radial-gradient(circle at 20% 30%, #2a2a72, #000000)",
+            "radial-gradient(circle at 80% 70%, #1a1a40, #000000)"
           ],
         }}
         transition={{
@@ -91,16 +40,23 @@ export default function Contact() {
           repeatType: "reverse",
         }}
       />
-      {bubbles.map((bubble) => (
-      <Bubble 
-        key={bubble.id} 
-        id={bubble.id} // Added id prop
-        size={bubble.size} 
-        position={bubble.position} 
-        delay={bubble.delay} 
-      />
-    ))}
       
+      {/* Blinking stars */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {[...Array(100)].map((_, index) => (
+          <div
+            key={index}
+            className="star"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${2 + Math.random() * 3}s`
+            }}
+          />
+        ))}
+      </div>
+
       {/* Heading text */}
       <motion.h1
         initial={{ opacity: 0, y: -50 }}
@@ -188,6 +144,30 @@ export default function Contact() {
           </motion.button>
         </form>
       </motion.div>
+
+      <style jsx>{`
+        .star {
+          position: absolute;
+          width: 2px;
+          height: 2px;
+          background-color: white;
+          border-radius: 50%;
+          opacity: 0.8;
+          animation: blink 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes blink {
+          0%, 100% {
+            opacity: 0.3;
+          }
+          50% {
+            opacity: 1;
+          }
+        }
+      `}</style>
     </div>
   )
 }
+
+
+

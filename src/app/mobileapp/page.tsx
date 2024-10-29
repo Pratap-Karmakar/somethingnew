@@ -1,42 +1,33 @@
-"use client"
+'use client'
 
-import React, { CSSProperties } from 'react'; // Add CSSProperties import
-import Image, { StaticImageData } from 'next/image';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
+import Image, { StaticImageData } from 'next/image'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
 
 // Import images
-import Zomato from '../../assets/mobileimage/Zomato.jpeg';
-import Onemg from '../../assets/mobileimage/Onemg.png';
-import Bigbusket from '../../assets/mobileimage/Bigbusket.png';
-import Facebook from '../../assets/mobileimage/Facebook.png';
-import Instagram from '../../assets/mobileimage/Instagram.png';
-import Snapchat from '../../assets/mobileimage/Snapchat.png';
-import Swiggy from '../../assets/mobileimage/Swiggy.png';
-import Twitter from '../../assets/mobileimage/Twitter.png';
-import Whatsapp from '../../assets/mobileimage/Whatsapp.jpg';
-
-// Bubble styles with correct type
-const bubbleStyle: CSSProperties = {
-  position: 'absolute',
-  borderRadius: '50%',
-  background: 'rgba(128, 0, 128, 0.5)', // Purple color
-  opacity: 0.5,
-};
+import Zomato from '../../assets/mobileimage/Zomato.jpeg'
+import Onemg from '../../assets/mobileimage/Onemg.png'
+import Bigbusket from '../../assets/mobileimage/Bigbusket.png'
+import Facebook from '../../assets/mobileimage/Facebook.png'
+import Instagram from '../../assets/mobileimage/Instagram.png'
+import Snapchat from '../../assets/mobileimage/Snapchat.png'
+import Swiggy from '../../assets/mobileimage/Swiggy.png'
+import Twitter from '../../assets/mobileimage/Twitter.png'
+import Whatsapp from '../../assets/mobileimage/Whatsapp.jpg'
 
 interface Product {
-  id: number;
-  image: StaticImageData;
-  title: string;
-  description: string;
+  id: number
+  image: StaticImageData
+  title: string
+  description: string
 }
 
-export default function AllInOneProductComponent() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const router = useRouter();
+export default function EnhancedProductCards() {
+  const [products, setProducts] = useState<Product[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const router = useRouter()
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -52,62 +43,52 @@ export default function AllInOneProductComponent() {
           { id: 8, image: Onemg, title: 'Ecommerce', description: 'Create an app like 1mg' },
           { id: 9, image: Zomato, title: 'Food Delivery', description: 'Create an app like Zomato' },
           { id: 10, image: Bigbusket, title: 'Ecommerce', description: 'Create an app like BigBusket' },
-        ];
-        setProducts(data);
-        setLoading(false);
+        ]
+        setProducts(data)
+        setLoading(false)
       } catch (err) {
-        setError('Failed to fetch products');
-        setLoading(false);
+        setError('Failed to fetch products')
+        setLoading(false)
       }
-    };
+    }
 
-    fetchProducts();
-  }, []);
+    fetchProducts()
+  }, [])
 
   const handleViewPrice = () => {
-    router.push('/maprice');
-  };
+    router.push('/maprice')
+  }
 
   if (loading) return (
     <div className="flex justify-center items-center h-screen bg-black">
       <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500"></div>
     </div>
-  );
-
+  )
+  
   if (error) return (
     <div className="flex justify-center items-center h-screen bg-black">
       <div className="text-center text-red-500 text-2xl font-bold">{error}</div>
     </div>
-  );
-
-  const bubbleCount = 20; // Number of bubbles
-  const bubbles = Array.from({ length: bubbleCount }, (_, index) => ({
-    size: Math.random() * 40 + 20, // Random size between 20px and 60px
-    left: Math.random() * 100 + 'vw', // Random horizontal position
-    animationDuration: Math.random() * 3 + 3 + 's', // Random duration between 3s and 6s
-    delay: Math.random() * 3 + 's' // Random delay
-  }));
+  )
 
   return (
     <div className="min-h-screen bg-black text-purple-300 overflow-hidden relative">
-      {/* Floating Bubbles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {bubbles.map((bubble, index) => (
+      {/* Star Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {[...Array(500)].map((_, index) => (
           <div
             key={index}
+            className="star"
             style={{
-              ...bubbleStyle,
-              width: bubble.size + 'px',
-              height: bubble.size + 'px',
-              left: bubble.left,
-              animation: `float ${bubble.animationDuration} ease-in-out infinite`,
-              animationDelay: bubble.delay,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
             }}
           />
         ))}
       </div>
 
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -118,7 +99,7 @@ export default function AllInOneProductComponent() {
             Our Mobile App Solutions
           </h1>
           <p className="text-xl text-purple-300 max-w-2xl mx-auto">
-            Discover the perfect mobile app solution for your business. From food delivery to social media, we&apos;ve got you covered.
+            Discover the perfect mobile app solution for your business. From food delivery to social media, we've got you covered.
           </p>
         </motion.div>
 
@@ -146,7 +127,7 @@ export default function AllInOneProductComponent() {
               <div className="p-6">
                 <p className="text-purple-300 mb-4">{product.description}</p>
                 <button 
-                  className="w-full bg-gradient-to-r from-purple-400 to-purple-700 text-black font-bold py-2 px-4 rounded-full hover:from-purple-700 hover:to-purple-400 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
+                  className="w-full bg-gradient-to-r from-purple-500 to-purple-700 text-white font-bold py-2 px-4 rounded-full hover:from-purple-600 hover:to-purple-800 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50"
                   onClick={handleViewPrice}
                 >
                   View Our Price
@@ -163,13 +144,30 @@ export default function AllInOneProductComponent() {
           className="text-center mt-16"
         >
           <button
-            className="bg-purple-500 text-black font-bold text-xl py-3 px-8 rounded-full hover:bg-purple-700 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
+            className="bg-purple-700 text-white font-bold text-xl py-3 px-8 rounded-full hover:bg-purple-900 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
             onClick={handleViewPrice}
           >
             Get Started Today
           </button>
         </motion.div>
       </div>
+
+      <style jsx>{`
+        .star {
+          position: absolute;
+          width: 3px;
+          height: 3px;
+          background-color: white;
+          border-radius: 50%;
+          opacity: 0;
+          animation: blink 2s infinite ease-in-out;
+        }
+
+        @keyframes blink {
+          0%, 100% { opacity: 0; }
+          50% { opacity: 1; }
+        }
+      `}</style>
     </div>
-  );
+  )
 }

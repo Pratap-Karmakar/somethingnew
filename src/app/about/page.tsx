@@ -1,21 +1,21 @@
 'use client'
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { FaLightbulb, FaHandshake, FaPuzzlePiece, FaTrophy } from "react-icons/fa"
-import { MdSecurity, MdCloud } from "react-icons/md"
-import { RiTeamFill } from "react-icons/ri"
-import { useRef, FC } from "react"
-import Link from 'next/link'
+import { motion, useScroll, useTransform } from "framer-motion";
+import { FaLightbulb, FaHandshake, FaPuzzlePiece, FaTrophy } from "react-icons/fa";
+import { MdSecurity, MdCloud } from "react-icons/md";
+import { RiTeamFill } from "react-icons/ri";
+import { useRef, FC } from "react";
+import Link from 'next/link';
 
 // Extend ValueProps to accept additional props for icons
 interface ValueProps {
-  icon: FC<{ className?: string }>; // Add className as optional prop
+  icon: FC<{ className?: string }>;
   title: string;
   text: string;
 }
 
 interface ServiceProps {
-  icon: FC<{ className?: string }>; // Add className as optional prop
+  icon: FC<{ className?: string }>;
   text: string;
 }
 
@@ -53,28 +53,24 @@ export default function AboutUs() {
     <motion.div
       ref={containerRef}
       className="min-h-screen p-8 relative overflow-hidden bg-black"
+      style={{ position: 'relative' }}
     >
-      {/* Floating shapes */}
-      {[...Array(20)].map((_, i) => (
+      {/* Blinking star background */}
+      {[...Array(100)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute rounded-full mix-blend-screen"
+          className="absolute rounded-full bg-white opacity-0"
           style={{
-            width: Math.random() * 100 + 50,
-            height: Math.random() * 100 + 50,
-            backgroundColor: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.1)`,
+            width: `${Math.random() * 3 + 1}px`,
+            height: `${Math.random() * 3 + 1}px`,
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
           }}
-          animate={{
-            x: Math.random() * 100 - 50,
-            y: Math.random() * 100 - 50,
-            rotate: Math.random() * 360,
-          }}
+          animate={{ opacity: [0, 1, 0] }}
           transition={{
-            duration: Math.random() * 10 + 20,
+            duration: Math.random() * 2 + 1,
             repeat: Infinity,
-            repeatType: "reverse",
+            repeatType: "mirror"
           }}
         />
       ))}
@@ -133,7 +129,7 @@ export default function AboutUs() {
                 transition={{ delay: index * 0.2 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <item.icon className="text-purple-400 text-4xl mb-4" /> {/* Ensure icon accepts className */}
+                <item.icon className="text-purple-400 text-4xl mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-purple-400">{item.title}</h3>
                 <p className="text-white">{item.text}</p>
               </motion.div>

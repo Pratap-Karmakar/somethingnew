@@ -73,8 +73,23 @@ export default function EnhancedWebsiteCards() {
   )
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
-      <div className="container mx-auto px-4 py-16">
+    <div className="min-h-screen bg-black text-white overflow-hidden relative">
+      {/* Star Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {[...Array(500)].map((_, index) => (
+          <div
+            key={index}
+            className="star"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="container mx-auto px-4 py-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -137,6 +152,23 @@ export default function EnhancedWebsiteCards() {
           </button>
         </motion.div>
       </div>
+
+      <style jsx>{`
+        .star {
+          position: absolute;
+          width: 3px;
+          height: 3px;
+          background-color: white;
+          border-radius: 50%;
+          opacity: 0;
+          animation: blink 2s infinite ease-in-out;
+        }
+
+        @keyframes blink {
+          0%, 100% { opacity: 0; }
+          50% { opacity: 1; }
+        }
+      `}</style>
     </div>
   )
 }
