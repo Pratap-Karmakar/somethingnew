@@ -20,6 +20,21 @@ export default function AppDevelopmentCost() {
   }
 
   return (
+    <div className="relative min-h-screen bg-black text-white overflow-hidden">
+      {/* Star Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {[...Array(100)].map((_, index) => (
+          <div
+            key={index}
+            className="star"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+            }}
+          />
+        ))}
+      </div>
     <motion.div 
       initial="hidden"
       animate="visible"
@@ -169,5 +184,23 @@ export default function AppDevelopmentCost() {
         </Link>
       </div>
     </motion.div>
+
+    <style jsx>{`
+        .star {
+          position: absolute;
+          width: 3px;
+          height: 3px;
+          background-color: white;
+          border-radius: 50%;
+          opacity: 0;
+          animation: blink 2s infinite ease-in-out;
+        }
+
+        @keyframes blink {
+          0%, 100% { opacity: 0; }
+          50% { opacity: 1; }
+        }
+      `}</style>
+    </div>
   )
 }
