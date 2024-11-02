@@ -1,8 +1,17 @@
 'use client'
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const EcommerceSolutions: React.FC = () => {
+
+  const router = useRouter()
+
+  const handleViewPrice = () => {
+    router.push('/contact')
+  }
+
+
   return (
     <section className="bg-black py-10 relative">
       {/* Star Background */}
@@ -137,6 +146,20 @@ const EcommerceSolutions: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="text-center mt-16"
+        >
+          <button
+            className="bg-purple-700 text-white font-bold text-xl py-3 px-8 rounded-full hover:bg-purple-900 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
+            onClick={handleViewPrice}
+          >
+            Talk to Us
+          </button>
+        </motion.div>
       </motion.div>
 
       <style jsx>{`

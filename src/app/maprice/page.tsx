@@ -2,8 +2,16 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 
 export default function AppDevelopmentCost() {
+
+  const router = useRouter()
+
+  const handleViewPrice = () => {
+    router.push('/contact')
+  }
+
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
@@ -178,11 +186,19 @@ export default function AppDevelopmentCost() {
         </div>
       </motion.div>
       
-      <div className="flex justify-center mt-6">
-        <Link href="/contact" className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition">
-          Get in Touch
-        </Link>
-      </div>
+      <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="text-center mt-16"
+        >
+          <button
+            className="bg-purple-700 text-white font-bold text-xl py-3 px-8 rounded-full hover:bg-purple-900 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
+            onClick={handleViewPrice}
+          >
+            Get in Touch
+          </button>
+        </motion.div>
     </motion.div>
 
     <style jsx>{`
