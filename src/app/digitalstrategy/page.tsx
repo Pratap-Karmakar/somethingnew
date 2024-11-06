@@ -231,7 +231,7 @@ const Naiyo24DigitalStrategy: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          In today's fast-paced digital landscape, simply being online isn't enough. You need precision, purpose, and a partner who truly understands your vision. That's Naiyo24 Private Limited. We elevate your brand, amplify your reach, and unlock measurable success.
+          In today&apos;s fast-paced digital landscape, simply being online isn&apos;t enough. You need precision, purpose, and a partner who truly understands your vision. That&apos;s Naiyo24 Private Limited. We elevate your brand, amplify your reach, and unlock measurable success.
         </motion.p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -250,10 +250,10 @@ const Naiyo24DigitalStrategy: React.FC = () => {
           <p className="max-w-2xl mx-auto mb-8">
             Our commitment to service-oriented and product-oriented businesses sets us apart. 
             Naiyo24 Private Limited is built on trust, transparency, and tangible results. 
-            We're your partner in building a future of sustainable growth and digital excellence.
+            We&apos;re your partner in building a future of sustainable growth and digital excellence.
           </p>
           <p className="max-w-2xl mx-auto mb-8">
-            Choose Naiyo24 and experience a partnership focused on your success. We'll help you realize the power of a strategic, insight-driven approach tailored for lasting impact.
+            Choose Naiyo24 and experience a partnership focused on your success. We&apos;ll help you realize the power of a strategic, insight-driven approach tailored for lasting impact.
           </p>
           <motion.div
           initial={{ opacity: 0, y: 50 }}
