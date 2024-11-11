@@ -82,7 +82,7 @@ export default function Footer() {
             <LinkSection
               title="Social"
               links={[
-                { label: "Facebook", href: "https://www.facebook.com/share/6VyKFaQQ9ESB1LsC/" },
+                // { label: "Facebook", href: "https://www.facebook.com/share/6VyKFaQQ9ESB1LsC/" },
                 { label: "LinkedIn", href: "#" },
                 { label: "Instagram", href: "https://www.instagram.com/naiyo.24?igsh=MTQyaDF0cmhjZjR0Zw==" },
               ]}

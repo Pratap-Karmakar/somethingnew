@@ -55,6 +55,7 @@ export default function Header() {
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0.7, opacity: 0 }}
                         transition={{ duration: 0.3 }}
+                        className="px-1 -py-2"
                       >
                         &times;
                       </motion.span>
@@ -65,6 +66,7 @@ export default function Header() {
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0.7, opacity: 0 }}
                         transition={{ duration: 0.3 }}
+                        className="py-1"
                       >
                         <Menu className="w-6 h-6" />
                       </motion.span>
