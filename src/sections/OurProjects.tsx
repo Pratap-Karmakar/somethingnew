@@ -35,7 +35,7 @@ const OurProjects: React.FC = () => {
     right: direction === "right" ? 0 : "auto",
     width: "100%",
     height: "20px",
-    backgroundImage: "linear-gradient(135deg, transparent 25%, #FFD700 25%, #FFD700 50%, transparent 50%, transparent 75%, #FFD700 75%)",
+    backgroundImage: "linear-gradient(135deg, transparent 25%, #5e0c56 25%, #5e0c56 50%, transparent 50%, transparent 75%, #5e0c56 75%)",
     backgroundSize: "30px 30px",
     opacity: 0.5,
     pointerEvents: "none" as "none",
@@ -46,13 +46,13 @@ const OurProjects: React.FC = () => {
   return (
     <div className="relative w-full py-20 mt-20 overflow-hidden">
       {/* Animated Zigzag Background Lines */}
-      <div style={{ ...zigzagStyle("0s", "left"), top: "10%" }}></div>
-      <div style={{ ...zigzagStyle("1s", "right"), top: "25%" }}></div>
-      <div style={{ ...zigzagStyle("2s", "left"), top: "40%" }}></div>
-      <div style={{ ...zigzagStyle("3s", "right"), top: "55%" }}></div>
-      <div style={{ ...zigzagStyle("4s", "left"), top: "70%" }}></div>
-      <div style={{ ...zigzagStyle("4s", "right"), top: "85%" }}></div>
-      <div style={{ ...zigzagStyle("4s", "left"), top: "100%" }}></div>
+      <div style={{ ...zigzagStyle("0s", "left"), top: "11%" }}></div>
+      <div style={{ ...zigzagStyle("1s", "right"), top: "26%" }}></div>
+      <div style={{ ...zigzagStyle("2s", "left"), top: "41%" }}></div>
+      <div style={{ ...zigzagStyle("3s", "right"), top: "56%" }}></div>
+      <div style={{ ...zigzagStyle("4s", "left"), top: "71%" }}></div>
+      <div style={{ ...zigzagStyle("5s", "right"), top: "86%" }}></div>
+      <div style={{ ...zigzagStyle("6s", "left"), top: "101%" }}></div>
 
       <div className="relative w-full px-2 md:px-20 lg:px-20 xl:px-20 border-b border-t border-zinc-700 pb-20 z-10">
         <h1 className="md:text-7xl lg:text-7xl xl:text-8xl text-3xl font-bold tracking-tight text-black pt-10 pb-20">
