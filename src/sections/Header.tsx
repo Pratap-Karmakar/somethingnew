@@ -18,7 +18,7 @@ export default function Header() {
     <header className="border-b border-white/15">
       <AnimatePresence>
         <motion.div
-          className="md:px-16 p-4 mx-auto"
+          className="md:px-16 py-1 px-4 mx-auto"
           initial={{ opacity: 0, y: -100 }} // Start above the view
           animate={{ opacity: 1, y: 0 }} // Slide down to its original position
           exit={{ opacity: 0, y: -100 }} // Slide back up when exiting
