@@ -3,7 +3,7 @@
 import React, { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 
-const OurProjects: React.FC = () => {
+const StudioProjects: React.FC = () => {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.2 });
@@ -41,14 +41,14 @@ const OurProjects: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.2,
         delayChildren: 0.3,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
@@ -61,87 +61,64 @@ const OurProjects: React.FC = () => {
   };
 
   return (
-    <motion.div 
-      className="relative w-full py-20 mt-20 overflow-hidden bg-gradient-to-b from-black via-purple-900 to-black"
+    <motion.div
+      className="relative w-full py-20 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0 z-0">
-        {Array.from({ length: 200 }).map((_, index) => (
-          <motion.div
-            key={index}
-            className="absolute rounded-full bg-white"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ 
-              opacity: [0, 0.5, 0],
-              scale: [0, 1, 0],
-            }}
-            transition={{
-              duration: Math.random() * 8 + 4,
-              repeat: Infinity,
-              delay: Math.random() * 4,
-            }}
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 4 + 1}px`,
-              height: `${Math.random() * 4 + 1}px`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Glossy Studio Background */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black to-gray-900 opacity-90" />
 
-      <div className="relative w-full px-4 md:px-20 border-b border-t border-purple-500/30 pb-20 z-10" ref={containerRef}>
-        <motion.h1 
-          className="text-4xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 pt-10 pb-20 text-center"
+      <div
+        className="relative w-full px-4 md:px-20 border-t border-gray-700 pb-20 z-10"
+        ref={containerRef}
+      >
+        <motion.h1
+          className="text-4xl md:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 pt-10 pb-16 text-center"
           initial={{ y: -50, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Our Stellar Projects
+          Studio Excellence
         </motion.h1>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {projectData.map((project, index) => (
+          {projectData.map((project) => (
             <motion.div
               key={project.name}
-              className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="relative group overflow-hidden rounded-xl shadow-2xl bg-black/50 transition-all duration-300 transform hover:scale-105 border-2 border-gray-800 hover:border-indigo-500"
               variants={itemVariants}
-              whileHover={{ y: -5 }}
               onHoverStart={() => setHoveredProject(project.name)}
               onHoverEnd={() => setHoveredProject(null)}
             >
+              {/* Spotlight effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              />
               <motion.img
                 src={project.imgSrc}
                 alt={`${project.name} Project`}
                 className="w-full h-64 object-cover"
                 initial={{ scale: 1 }}
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3 }}
+                whileHover={{ scale: 1.2 }}
+                transition={{ duration: 0.4 }}
               />
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-t from-black to-transparent"
-                initial={{ opacity: 0.5 }}
-                whileHover={{ opacity: 0.8 }}
-                transition={{ duration: 0.3 }}
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h2 className="text-2xl font-bold text-white mb-2">{project.name}</h2>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-center bg-black/60 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 transition-all duration-300">
+                <h2 className="text-2xl font-bold text-white">{project.name}</h2>
                 <AnimatePresence>
                   {hoveredProject === project.name && (
                     <motion.p
-                      className="text-sm text-gray-300"
+                      className="mt-2 text-gray-300 text-sm"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2 }}
+                      transition={{ duration: 0.3 }}
                     >
                       {project.description}
                     </motion.p>
@@ -153,36 +130,31 @@ const OurProjects: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Decorative Elements */}
+      {/* Floating Studio Glows */}
       <motion.div
-        className="absolute top-10 left-10 w-20 h-20 border-2 border-purple-500 rounded-full"
+        className="absolute top-16 left-16 w-28 h-28 bg-indigo-600 rounded-full blur-xl opacity-40"
         animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 180, 360],
-          opacity: [0.2, 0.5, 0.2],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-10 right-10 w-16 h-16 border-2 border-pink-500 rounded-full"
-        animate={{
-          scale: [1, 1.3, 1],
-          rotate: [360, 180, 0],
-          opacity: [0.2, 0.5, 0.2],
+          y: [0, -20, 0],
+          scale: [1, 1.1, 1],
         }}
         transition={{
           duration: 6,
           repeat: Infinity,
-          ease: "linear",
+        }}
+      />
+      <motion.div
+        className="absolute bottom-16 right-16 w-20 h-20 bg-pink-500 rounded-full blur-lg opacity-50"
+        animate={{
+          x: [0, 20, 0],
+          scale: [1, 1.3, 1],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
         }}
       />
     </motion.div>
   );
 };
 
-export default OurProjects;
-
+export default StudioProjects;

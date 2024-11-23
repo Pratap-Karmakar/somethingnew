@@ -48,7 +48,7 @@ export default function Footer() {
 
   return (
     <motion.footer
-      className="relative text-gray-200 pt-44 w-full min-h-screen bg-[#080114] py-28 px-4 sm:px-6 lg:px-8 flex flex-col overflow-hidden"
+      className="relative text-gray-200 pt-44 w-full min-h-screen bg-black py-28 px-4 sm:px-6 lg:px-8 flex flex-col overflow-hidden"
       initial="hidden"
       animate={controls}
       variants={containerVariants}

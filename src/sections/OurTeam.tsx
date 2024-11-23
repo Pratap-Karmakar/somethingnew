@@ -89,7 +89,7 @@ export default function CircularTeamDisplay() {
 //   const orbitRadii = [100, 150, 200, 250, 300]
 
   return (
-    <div className="relative w-full h-screen flex items-center justify-center bg-gradient-to-br from-black via-purple-900 to-black overflow-hidden">
+    <div className="relative w-full h-screen flex items-center justify-center bg-gradient-to-t from-black via-purple-900 to-black overflow-hidden">
       {/* Responsive Background Text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4">
         <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white opacity-5 text-center">
