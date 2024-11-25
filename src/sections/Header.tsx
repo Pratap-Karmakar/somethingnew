@@ -102,6 +102,9 @@ export default function Header() {
                   <li className="hover:underline hover:text-purple-600">
                     <Link href="/contact">Contact Us</Link>
                   </li>
+                  <li className="hover:underline hover:text-purple-600">
+                    <Link href="/ourprojects">Our Projects</Link>
+                  </li>
                 </ul>
               </motion.div>
             </motion.div>
