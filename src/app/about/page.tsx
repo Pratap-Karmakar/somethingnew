@@ -88,7 +88,7 @@ export default function AboutUs() {
             }
           }}
         >
-          {Array.from("Naiyo24 pvt ltd.").map((char, index) => (
+          {Array.from("CodeCraft Studio pvt ltd.").map((char, index) => (
             <motion.span
               key={index}
               variants={{
@@ -103,7 +103,7 @@ export default function AboutUs() {
 
         <motion.section {...fadeInUp} className="mb-16 text-white">
           <p className="text-xl mb-6 leading-relaxed">
-            At Naiyo24 pvt ltd. we are dedicated to delivering cutting-edge IT solutions that empower businesses and individuals in today&apos;s digital landscape. Our expertise spans across various technological domains, enabling us to craft innovative products and services that drive growth and enhance user experiences.
+            At CodeCraft Studio pvt ltd. we are dedicated to delivering cutting-edge IT solutions that empower businesses and individuals in today&apos;s digital landscape. Our expertise spans across various technological domains, enabling us to craft innovative products and services that drive growth and enhance user experiences.
           </p>
           <p className="text-xl leading-relaxed">
             We pride ourselves on being at the forefront of technology, constantly evolving to meet the changing needs of our clients. From software development to IT consulting, our team of professionals is committed to excellence, quality, and customer satisfaction.
@@ -162,7 +162,7 @@ export default function AboutUs() {
         <motion.section {...fadeInUp} className="text-center">
           <h2 className="text-4xl font-semibold mb-6 text-purple-400">Get in Touch</h2>
           <p className="text-xl mb-8 text-white leading-relaxed">
-            Ready to explore how Naiyo24 pvt ltd. can help you achieve your technology goals? Contact us today to discover how our expertise can shape your IT future.
+            Ready to explore how CodeCraft Studio pvt ltd. can help you achieve your technology goals? Contact us today to discover how our expertise can shape your IT future.
           </p>
           <Link href="/contact">
             <motion.button

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { Menu } from "lucide-react";
-import logo from "../assets/naiyo24.png";
+import logo from "../assets/CodeCraftStudio.png";
 import Link from "next/link";
 
 export default function Header() {

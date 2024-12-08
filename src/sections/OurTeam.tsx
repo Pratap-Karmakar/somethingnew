@@ -11,53 +11,53 @@ interface TeamMember {
 
 const teamData: TeamMember[] = [
   {
-    quote: "Ongoing Projects - Naiyo24, Luriana, Nariii",
-    name: "Srijani Ghosh",
+    quote: "Ongoing Projects - CodeCraft Studio",
+    name: "Some Name",
     title: "BDM SEO and Marketing",
   },
   {
-    quote: "Ongoing Projects - Niayo24, Nariii",
-    name: "Sambik Karmakar",
+    quote: "Ongoing Projects - CodeCraft Studio",
+    name: "Some Name",
     title: "IT Full Stack Graphic Designer",
   },
   {
-    quote: "Ongoing Projects - Naiyo24, Nariii",
-    name: "Rohit Ghosh",
+    quote: "Ongoing Projects - CodeCraft Studio",
+    name: "Some Name",
     title: "Full Stack, Backend Professional",
   },
   {
-    quote: "Ongoing Projects - Luriana",
-    name: "Pratap Karmakar",
+    quote: "Ongoing Projects - CodeCraft Studio",
+    name: "Some Name",
     title: "Full Stack Web Developer Professional",
   },
   {
-    quote: "Ongoing Projects - Nariii",
-    name: "Rana Kobiraj",
+    quote: "Ongoing Projects - CodeCraft Studio",
+    name: "Some Name",
     title: "Backend Developer",
   },
   {
-    quote: "Ongoing Projects - Naiyo24, Nariii",
-    name: "Subhankar Das",
+    quote: "Ongoing Projects - CodeCraft Studio",
+    name: "Some Name",
     title: "Frontend Developer",
   },
   {
-    quote: "Ongoing Projects - Naiyo24",
-    name: "Kaustubh Upadhyay",
+    quote: "Ongoing Projects - CodeCraft Studio",
+    name: "Some Name",
     title: "IT Backend Developer",
   },
   {
     quote: "Intern",
-    name: "Samadrita Banarjee",
+    name: "Some Name",
     title: "IT Frontend Developer",
   },
   {
-    quote: "Ongoing Projects - Naiyo24, Luriana, Nariii",
-    name: "Tamashree Halder",
+    quote: "Ongoing Projects - CodeCraft Studio",
+    name: "Some Name",
     title: "BDM, SEO And Marketing",
   },
   {
-    quote: "Ongoing Projects - Naiyo24",
-    name: "Souvik Nandy",
+    quote: "Ongoing Projects - CodeCraft Studio",
+    name: "Some Name",
     title: "Full Stack Developer",
   },
 ]
@@ -93,7 +93,7 @@ export default function CircularTeamDisplay() {
       {/* Responsive Background Text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4">
         <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white opacity-5 text-center">
-          Our Team at Naiyo24 Pvt Ltd.
+          Our Team at CodeCraft Studio Pvt Ltd.
         </h1>
       </div>
 

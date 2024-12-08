@@ -10,27 +10,27 @@ const OurProjects: React.FC = () => {
 
   const projectData = [
     {
-      name: "Luriana",
+      name: "Project 1",
       imgSrc: "https://images.pexels.com/photos/27019303/pexels-photo-27019303.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       description: "A revolutionary AI-powered design tool",
     },
     {
-      name: "Nariii",
+      name: "Project 2",
       imgSrc: "https://images.pexels.com/photos/29087220/pexels-photo-29087220/free-photo-of-brown-pelicans-at-la-jolla-cove-san-diego.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       description: "Sustainable ocean conservation initiative",
     },
     {
-      name: "Naiyo",
+      name: "Project 3",
       imgSrc: "https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       description: "Next-gen smart home automation system",
     },
     {
-      name: "Sirfdill",
+      name: "Project 4",
       imgSrc: "https://images.pexels.com/photos/1107717/pexels-photo-1107717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       description: "Innovative urban vertical farming solution",
     },
     {
-      name: "2Strainers",
+      name: "Project 5",
       imgSrc: "https://images.pexels.com/photos/355465/pexels-photo-355465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       description: "Cutting-edge music production software",
     },

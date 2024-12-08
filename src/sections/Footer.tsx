@@ -64,14 +64,14 @@ export default function Footer() {
               About.
             </motion.h2>
             <motion.p className="max-w-md text-lg text-gray-300" variants={itemVariants}>
-              NAIYO24 PRIVATE LIMITED specializes in crafting innovative web and
+              CodeCraft Studio PRIVATE LIMITED specializes in crafting innovative web and
               mobile solutions tailored to your business. We&#39;re committed to
               turning your digital ideas into reality with cutting-edge
               technology and expert services.
             </motion.p>
           </div>
           <motion.div className="mt-16 lg:mt-0 font-semibold text-2xl text-gray-300" variants={itemVariants}>
-            Naiyo24 pvt ltd.
+            CodeCraft Studio pvt ltd.
           </motion.div>
         </motion.div>
         <motion.div className="lg:w-1/2 space-y-12" variants={itemVariants}>
@@ -104,7 +104,7 @@ export default function Footer() {
         className="mt-16 pt-8 border-t border-[#1a1528] text-center text-sm text-gray-400"
         variants={itemVariants}
       >
-        © {new Date().getFullYear()} NAIYO24 PRIVATE LIMITED. All Rights Reserved.
+        © {new Date().getFullYear()} CodeCraft Studio PRIVATE LIMITED. All Rights Reserved.
       </motion.div>
     </motion.footer>
   );

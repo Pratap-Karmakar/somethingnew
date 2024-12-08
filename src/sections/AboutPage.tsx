@@ -25,7 +25,7 @@ const AboutPage: React.FC = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Welcome to Naiyo24 pvt ltd.
+          Welcome to CodeCraft Studio pvt ltd.
         </motion.h1>
         <motion.p 
           className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl text-center mb-10 leading-relaxed"
